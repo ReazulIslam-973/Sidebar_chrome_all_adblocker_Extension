@@ -1,0 +1,33 @@
+    {
+        "manifest_version": 2,
+        "name" : "SideBar-Apps and Bookmark Manager",
+        "author": "Freelancer Reaz",
+        "version" : "0.0.1",
+        "description": "Hidden Sidebar with apps and bookmarks that appear in one move. Organize bookmarks and apps with customized sidebar",
+        
+        "icons" :{
+            "16" : "logo16.png",
+            "32" : "logo32.png",
+            "64" : "logo64.png",
+            "128" : "logo128.png"
+        },
+        "browser_action" : {
+            "default_icon" : "logo128.png",
+            "default_popup" : "popup.html"
+        },
+
+        "permissions": ["tabs", "storage", "unlimitedStorage","webRequest", "webRequestBlocking", "<all_urls>","activeTab"],
+
+        "minimum_chrome_version":"55",
+        "background":{
+            "scripts" : ["background.js"]
+        },
+        "content_scripts": [ {
+            "all_frames": true,
+            "js": [ "contentscript.js" ],
+            "matches": [ "http://*/*", "https://*/*","<all_urls>" ],
+            "run_at": "document_idle"
+         } ]
+            
+        
+    }
